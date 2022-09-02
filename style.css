@@ -384,13 +384,16 @@ header {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 500px;
+	width: 100%;
 }
-.skills_soft_container-box p {
+.container_escucha-p,
+.container_agile-p,
+.container_comunicacion-p,
+.container_tiempo-p {
+	position: absolute;
 	width: 90%;
 	height: 0%;
 	text-align: justify;
-
 	background: -webkit-linear-gradient(
 		164deg,
 		#141476 40%,
@@ -398,45 +401,11 @@ header {
 		#00ff00 20%
 	);
 	overflow: hidden;
+	transition: height 1s;
 }
 
 .skills_soft_container img:hover {
-	animation: animation_1 2s infinite;
-}
-@keyframes animation_1 {
-	0% {
-		box-shadow: 0px 1px 66px 0px var(--color2) inset;
-	}
-	10% {
-		box-shadow: 0px 1px 66px 2px var(--color2) inset;
-	}
-	20% {
-		box-shadow: 0px 1px 66px 4px var(--color2) inset;
-	}
-	30% {
-		box-shadow: 0px 1px 66px 6px var(--color2) inset;
-	}
-	40% {
-		box-shadow: 0px 1px 66px 8px var(--color2) inset;
-	}
-	50% {
-		box-shadow: 0px 1px 66px 10px var(--color2) inset;
-	}
-	60% {
-		box-shadow: 0px 1px 66px 8px var(--color2) inset;
-	}
-	70% {
-		box-shadow: 0px 1px 66px 6px var(--color2) inset;
-	}
-	80% {
-		box-shadow: 0px 1px 66px 4px var(--color2) inset;
-	}
-	90% {
-		box-shadow: 0px 1px 66px 2px var(--color2) inset;
-	}
-	100% {
-		box-shadow: 0px 1px 66px 0px var(--color2) inset;
-	}
+	background-color: var(--color2);
 }
 
 /* ------------------------------------ */
@@ -474,4 +443,8 @@ footer p {
 }
 .desplegar_menu {
 	height: 200px;
+}
+.desplegar {
+	height: 30%;
+	position: unset;
 }

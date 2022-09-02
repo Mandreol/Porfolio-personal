@@ -21,18 +21,26 @@ function menu() {
 }
 
 function comunicacionDesplegar() {
-	console.log("click");
-	comunicacion.classList.toggle("desplegar");
+	tiempoText.classList.remove("desplegar");
+	agileText.classList.remove("desplegar");
+	escuchaText.classList.remove("desplegar");
+	comunicacionText.classList.toggle("desplegar");
 }
 function escuchaDesplegar() {
-	console.log("click");
-	escucha.classList.toggle("desplegar");
+	tiempoText.classList.remove("desplegar");
+	agileText.classList.remove("desplegar");
+	comunicacionText.classList.remove("desplegar");
+	escuchaText.classList.toggle("desplegar");
 }
 function agileDesplegar() {
-	console.log("click");
-	agile.classList.toggle("desplegar");
+	tiempoText.classList.remove("desplegar");
+	comunicacionText.classList.remove("desplegar");
+	escuchaText.classList.remove("desplegar");
+	agileText.classList.toggle("desplegar");
 }
 function tiempoDesplegar() {
-	console.log("click");
-	tiempo.classList.toggle("desplegar");
+	comunicacionText.classList.remove("desplegar");
+	escuchaText.classList.remove("desplegar");
+	agileText.classList.remove("desplegar");
+	tiempoText.classList.toggle("desplegar");
 }
