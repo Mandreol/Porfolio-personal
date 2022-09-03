@@ -101,17 +101,20 @@ nav path {
 	background-color: var(--color2);
 }
 /* ----------nav mediaqueries ---------- */
-nav svg {
-	display: none;
-}
-nav {
-	justify-content: space-around;
-	align-items: center;
-}
-.menu {
-	flex-direction: row;
-	height: fit-content;
-	width: 80%;
+@media screen and (min-width: 700px) {
+	nav svg {
+		display: none;
+	}
+
+	nav {
+		justify-content: space-around;
+		align-items: center;
+	}
+	.menu {
+		flex-direction: row;
+		height: fit-content;
+		width: 80%;
+	}
 }
 /* --------------------------------------------------- */
 /* ------------------Header-------------------- */
@@ -221,9 +224,15 @@ header {
 	gap: 1rem;
 }
 .header_social svg {
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
+	transition: all 0.5s;
 }
+.header_social svg:hover {
+	fill: var(--color2);
+	transform: scale(1.2);
+}
+
 .header_social path {
 	transform: scale(2.2);
 }
@@ -474,7 +483,7 @@ header {
 }
 .slider {
 	height: 55vw;
-	width: 400%;
+	width: 300%;
 	display: flex;
 	margin-left: -100%;
 }
