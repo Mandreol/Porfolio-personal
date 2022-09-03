@@ -15,6 +15,7 @@
 	list-style: none;
 	text-decoration: none;
 	font-family: "Overpass", sans-serif;
+	scroll-behavior: smooth;
 }
 h1 {
 	font-size: var(--text-xl);
@@ -29,22 +30,33 @@ h4 {
 	font-size: var(--text-s);
 }
 .line {
-	width: 70%;
+	width: 100%;
 	border: solid 2px black;
 	align-self: center;
 	border-radius: 50%;
 	margin-top: 1rem;
 	margin-bottom: 1rem;
 }
+.principal_container {
+	display: flex;
+	flex-wrap: wrap;
+}
 
-.principal-box {
+.secundari_container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	align-items: flex-start;
 	background-color: white;
 	height: fit-content;
 	width: 100vw;
 	gap: 1rem;
+}
+@media screen and (min-width: 700px) {
+	.secundari_container {
+		justify-content: center;
+		width: 68vw;
+	}
 }
 /* ---------------Barra de navegación--------- */
 nav {
@@ -78,15 +90,29 @@ nav path {
 	gap: 0.5rem;
 	overflow: hidden;
 }
-.menu li {
+.menu a {
 	text-align: center;
 	width: 100%;
 	color: white;
+	border-radius: 1rem;
+	transition: all 0.5s;
 }
-.menu li:hover {
+.menu a:hover {
 	background-color: var(--color2);
 }
-
+/* ----------nav mediaqueries ---------- */
+nav svg {
+	display: none;
+}
+nav {
+	justify-content: space-around;
+	align-items: center;
+}
+.menu {
+	flex-direction: row;
+	height: fit-content;
+	width: 80%;
+}
 /* --------------------------------------------------- */
 /* ------------------Header-------------------- */
 header {
@@ -136,17 +162,19 @@ header {
 .header_img h4:nth-child(1) {
 	left: 0;
 	top: 0;
+	padding-left: 20px;
 }
 .header_img h4:nth-child(1) span,
 .header_img h4:nth-child(3) span {
 	color: black;
 	padding: 5px;
-	padding-left: 30px;
+	margin-left: 10px;
 }
 
 .header_img h4:nth-child(3) {
 	bottom: 0;
-	right: 0;
+	right: 0px;
+	padding-left: 20px;
 }
 
 .header_img-img {
@@ -161,6 +189,11 @@ header {
 	box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 	-webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
 	-moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+.header_encabezado {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .header_title {
 	display: flex;
@@ -194,36 +227,6 @@ header {
 .header_social path {
 	transform: scale(2.2);
 }
-/* --------------------------------------- */
-/* -------------Formulario de contacto--------------- */
-.contact {
-	width: 90%;
-	display: flex;
-	flex-wrap: wrap;
-	padding: 1rem;
-	gap: 1rem;
-
-	border-radius: 0.5rem;
-}
-.contact h3 {
-	text-align: center;
-}
-.contact span {
-	color: var(--color2);
-}
-.contact_form {
-	display: flex;
-	flex-direction: column;
-}
-.contact_form label {
-	width: 100%;
-}
-.contact_form input {
-	border-radius: 0.5rem;
-	width: 70%;
-	align-self: center;
-}
-/* --------------------------------- */
 /* ---------------Perfil profecional--------------------- */
 .about {
 	width: 100%;
@@ -232,10 +235,9 @@ header {
 	height: 50vh;
 	gap: 1rem;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 }
 .about h2 {
-	text-shadow: 0px -2px 10px rgba(0, 0, 0, 0.9);
 	text-align: center;
 	color: var(--color1);
 }
@@ -249,36 +251,95 @@ header {
 	flex-direction: column;
 	padding: 1rem;
 	gap: 1rem;
-	align-self: center;
-	height: 60%;
+	height: 65vh;
 	overflow: scroll;
 	border-radius: 1rem;
 }
 .about_container p {
 	align-self: center;
 	text-align: justify;
-	width: 90%;
+	width: 97%;
 }
 
 .about_container::-webkit-scrollbar {
 	display: none;
 }
-.about-button {
-	width: 30%;
+.about-btn {
+	width: 130px;
+	height: 40px;
 	color: white;
 	border-radius: 0.5rem;
 	background-color: black;
+	transition: all 0.5s;
+	border: none;
+}
+.about-btn:hover {
+	background-color: var(--color2);
+}
+/* -------------about mediaqueries ------------- */
+@media screen and (min-width: 700px) {
+	.about {
+		height: 100%;
+		width: 30%;
+		position: sticky;
+		top: 45px;
+	}
 }
 /* ---------------------------------------------- */
+/* ----------header mediaqueries ---------- */
+@media screen and (min-width: 700px) {
+	header {
+		flex-direction: row;
+		justify-content: center;
+	}
+	.header_encabezado {
+		gap: 2rem;
+	}
+}
+/* --------------------------------------- */
+/* -------------Formulario de contacto--------------- */
+.contactme {
+	width: 90%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 1rem;
+	gap: 1rem;
+	border-radius: 0.5rem;
+}
+.contactme h3 {
+	text-align: center;
+}
+.contactme span {
+	color: var(--color2);
+}
+.contact_form {
+	display: flex;
+	flex-direction: column;
+}
+.contact_form label {
+	width: 100%;
+	text-align: center;
+}
+.contact_form input {
+	border-radius: 0.5rem;
+	width: 70%;
+	align-self: center;
+}
+/* ----------contame mediaqueries ---------- */
+
+/* --------------------------------- */
+
 /* ---------------------Estudios----------------- */
 .studies {
-	width: 90%;
+	width: 95%;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	gap: 1rem;
 }
 .studies h2 {
+	color: var(--color1);
 	width: 100%;
 	text-align: center;
 }
@@ -299,15 +360,16 @@ header {
 	text-align: center;
 	color: grey;
 }
+/* -------------mediaqueries ----------*/
 /* -------------------------------------- */
 /* ------------------skills-------------- */
 .skills {
 	display: flex;
 	flex-direction: column;
+	width: 90%;
 }
 .skills h2 {
 	margin-top: 1rem;
-	text-shadow: 0px -2px 10px rgba(0, 0, 0, 0.9);
 	width: 100%;
 	text-align: center;
 	color: var(--color1);
@@ -316,9 +378,8 @@ header {
 	width: 100%;
 	font-size: var(--text-m);
 	text-align: center;
-
 	color: var(--color2);
-	font-weight: 500;
+	font-weight: 700;
 }
 .skills_content-skill-raiting {
 	display: flex;
@@ -379,6 +440,7 @@ header {
 	width: 100px;
 	border-radius: 1rem;
 	padding: 5px;
+	transition: all 1s;
 }
 
 .container_escucha-p,
@@ -386,18 +448,10 @@ header {
 .container_comunicacion-p,
 .container_tiempo-p {
 	position: absolute;
-	color: white;
 	bottom: 0;
 	width: 90%;
 	height: 0%;
-	border-radius: 1rem;
 	text-align: justify;
-	background: -webkit-linear-gradient(
-		164deg,
-		#141476 40%,
-		#00ff00 80%,
-		#00ff00 20%
-	);
 	overflow: hidden;
 	transition: height 1s;
 }
@@ -405,16 +459,62 @@ header {
 .skills_soft_container img:hover {
 	background-color: var(--color2);
 }
-
+/* -------------mediaqueries ----------*/
 /* ------------------------------------ */
+/*-------------- slider ----------*/
+.container_slider {
+	width: 90%;
+	margin: auto;
+	overflow: hidden;
+	box-shadow: 0 0 0 10px white, 0 15px 50px;
+	position: relative;
+}
+.container_slider h2 {
+	color: var(--color1);
+}
+.slider {
+	height: 55vw;
+	width: 400%;
+	display: flex;
+	margin-left: -100%;
+}
+.slider_section {
+	width: 100%;
+}
+.slider-img {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.slider_btn {
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+}
+.slider_btn:hover {
+	fill: rgb(107, 107, 107);
+}
+.slider_btn--left {
+	left: 10px;
+}
+.slider_btn--rigth {
+	right: 10px;
+}
+
+/* -------------media queries ------------- */
+@media screen and (min-width: 700px) {
+	.slider {
+		height: 35vw;
+	}
+}
 /* -------------Datos para contacto ------------- */
 .contact {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	border: solid black 2px;
-	border-radius: 1rem;
+	margin-top: 2rem;
 }
 .contact span {
 	color: var(--color1);
@@ -444,8 +544,6 @@ footer p {
 	height: 200px;
 }
 .desplegar {
-	overflow: scroll;
-	height: 25%;
+	height: 35%;
 	position: unset;
-	padding: 2rem;
 }
