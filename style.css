@@ -254,7 +254,7 @@ header {
 	color: var(--color2);
 }
 .about_container {
-	border: solid 2px black;
+	border: solid 0px 2px 0px 2px black;
 	width: 90%;
 	display: flex;
 	flex-direction: column;
@@ -334,6 +334,17 @@ header {
 	border-radius: 0.5rem;
 	width: 70%;
 	align-self: center;
+}
+@media screen and (min-width: 700px) {
+	.contactme {
+		flex-wrap: nowrap;
+	}
+	.contactme h3 {
+		width: 50%;
+	}
+	.contact_form {
+		width: 45%;
+	}
 }
 /* ----------contame mediaqueries ---------- */
 
